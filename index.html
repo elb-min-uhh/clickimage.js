@@ -6,23 +6,62 @@
 		<meta name="description" content="Hier Beschreibung einfügen">
 		<meta name="author" content="Name Autor">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		
+
 		<link rel="stylesheet" type="text/css" href="assets/css/elearn.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/clickimage.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/quiz.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/clickimage.css">
 
 		<script type="text/javascript" src="assets/js/min.js"></script> <!-- von UHH verwendetes JQuery -->
 		<script type="text/javascript" src="assets/js/elearn.js"></script> <!-- eLearn.js -->
-        <script type="text/javascript" src="assets/js/clickimage.js"></script> <!-- Interaktive Grafik Script -->
+		<script type="text/javascript" src="assets/js/clickimage.js"></script> <!-- Quiz Script -->
+
 
 		<script>
 		    window.onload = function() {
-                eLearnJS.showAllSections();
-                eLearnJS.showSection(0);
+
+                // Erweiterungen hier einfügen
+
+                // Ende der Erweiterungen
+
+                /* Mögliche Erweiterungen
+
+                Alle nachfolgenden Erweiterungen sind 'auskommentiert'.
+                Das bedeutet, sie haben keine Funktion solange sie innerhalb
+                des /* ... * / Blocks sind. (Abschluss ohne Leerzeichen zwischen * und /)
+                Möchte man also etwas einbauen/nutzen, muss die jeilige Zeile
+                außerhalb des Kommentarblocks stehen.
+                Jeder Befehl endet mit einem ';'. Alles hinter den // ist
+                ein weiterer erklärender Kommentar.
+
+
+                eLearnJS.toggleAllSections(); // Zeigt alle Sections an
+                eLearnJS.setNavigationTitle("Überschrift"); // Die Überschrift, wenn alle Sections sichtbar sind
+
+				eLearnJS.setBackButtonEnabled(true); // Zurück button im Header aktivieren
+                eLearnJS.setBackButtonText("Übersicht"); // "Übersicht" als Text, statt "Zurück" für den Button
+
+                // Beispiele für BackPages (Was geöffnet wird beim Back button):
+                // Der erste Parameter entspricht dem jeweiligen Ziel
+                // der zweite Parameter gibt die Art des Ziels an.
+                // Bei "index" wird der erste Parameter als Index einer
+                // Section erkannt. "name" wäre der Name einer Section.
+                // "link" funktioniert wie ein href link eines <a>
+                eLearnJS.setBackPage(2, "index"); // Die 3. section
+                eLearnJS.setBackPage("Inhaltsverzeichnis", "name"); // Die section mit name="Inhaltsverzeichnis"
+				eLearnJS.setBackPage("../", "link"); // Im Pfad einen Schritt zurück
+                eLearnJS.setBackPage("http://google.de", "link"); // Google wird geöffnet
+
+				eLearnJS.generalDirectionButtonsEnabled(false); // keine Nav. Buttons
+				eLearnJS.setKeyNavigationEnabled(false); // keine Tastaturnavigation
+				eLearnJS.generalProgressbarEnabled(false); // keine Fortschrittsleiste
+                */
             }
         </script>
 
-		<title>elearn.js Template</title>
+		<title>clickimage.js Template</title>
 	</head>
+
+
 	<body>
 	    <!-- #wrap muss bleiben, sonst funktioniert eLearn.js nicht -->
 		<div id="wrap">
@@ -31,7 +70,7 @@
                 <div class="lightbox">
                     <div class="info-wrapper">
 				        <!--Der inhalt der Info-Box kann frei mit html-Inhalt gefüllt werden. -->
-			         	<h4>elearn.js Template</h4>
+			         	<h4>Interaktive Grafik Template</h4>
 				        <p>
 				            Prof. Dr. Name des Autors<br>
 				            Universität Hamburg
@@ -44,7 +83,7 @@
 
 				<!--Hier den Markdown-Export einfügen-->
                 
-				<section name="Textebenen">
+				<section name="Interaktive Grafik">
 					<h2>Interaktive Grafik</h2>
 					<div class="clickimage">
                         <div class="imagebox">
@@ -75,9 +114,19 @@
                         </div>
                     </div>
 				</section>
-            	<!--Ende des Einfüge-Bereichs-->
+
+
 
             	<!--MathJax-Einbindung für die Formeldarstellung-->
+	            <script type="text/x-mathjax-config">
+	            	if (typeof MathJaxListener !== 'undefined') {
+	                      MathJax.Hub.Register.StartupHook('End', function () {
+	                        MathJaxListener.invokeCallbackForKey_('End');
+	                      });
+	                    }
+	                    </script>
+	            <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
             </div>
 		</div>
 	</body>
