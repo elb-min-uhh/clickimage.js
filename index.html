@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="Key, Words">
+		<meta name="description" content="Hier Beschreibung einfügen">
+		<meta name="author" content="Name Autor">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		
+		<link rel="stylesheet" type="text/css" href="assets/css/elearn.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/clickimage.css">
+
+		<script type="text/javascript" src="assets/js/min.js"></script> <!-- von UHH verwendetes JQuery -->
+		<script type="text/javascript" src="assets/js/elearn.js"></script> <!-- eLearn.js -->
+        <script type="text/javascript" src="assets/js/clickimage.js"></script> <!-- Interaktive Grafik Script -->
+
+		<script>
+		    window.onload = function() {
+                eLearnJS.showAllSections();
+                eLearnJS.showSection(0);
+            }
+        </script>
+
+		<title>elearn.js Template</title>
+	</head>
+	<body>
+	    <!-- #wrap muss bleiben, sonst funktioniert eLearn.js nicht -->
+		<div id="wrap">
+            <!-- Page Info -->
+            <div class="lb-wrap" id="info">
+                <div class="lightbox">
+                    <div class="info-wrapper">
+				        <!--Der inhalt der Info-Box kann frei mit html-Inhalt gefüllt werden. -->
+			         	<h4>elearn.js Template</h4>
+				        <p>
+				            Prof. Dr. Name des Autors<br>
+				            Universität Hamburg
+				        <p>
+				    </div>
+			    </div>
+            </div>
+
+			<div class="page">
+
+				<!--Hier den Markdown-Export einfügen-->
+                
+				<section name="Textebenen">
+					<h2>Interaktive Grafik</h2>
+					<div class="clickimage">
+                        <div class="imagebox">
+                            <img src="assets/img/schiff.jpg" alt="Schiff" onload="clickimagePins(this,[[10,30],[50,60],[42,25],[90,90]])">
+                        </div>
+                        <div class="pininfo">
+                            <div>
+                                <h3><span class="highlight">Aufgabe 1</span> Wie lauten die Bestandteile des Kopfes?</h3>
+                                <p class="task">Wie jedes Insekt hat auch eine Biene insgesamt 6 Beine. Die Biene benutzt ihre Beine nicht nur zum Laufen, sondern auch zur Körperpflege und beim Transport der Pollen zum Stock. Jedes Bein ist in fünf Glieder unterteilt. Vom Körper aus betrachtet nennt man sie Hüfte (Coxa), Schenkelring (Trochanter), Schenkel (Femur), Schiene (Tibia) und Fuß (Tarsus). Der Fuß ist widerum in 4 kleinere Glieder unterteilt. Das letzte Fußglied trägt eine Kralle und Haftlappen, mit denen sich Bienen auch auf sehr glatten Oberflächen, wie zum Beispiel Glas festhalten können.</p>
+                                <p class="hint">Hinweis<br>Wie jedes Insekt hat auch eine Biene insgesamt 6 Beine. Die Biene benutzt ihre Beine nicht nur zum Laufen, sondern auch zur Körperpflege und beim Transport der Pollen zum Stock.</p>
+                                <ul class="links">
+                                    <li><a href="https://de.wikipedia.org/wiki/The_Bird_and_the_Bee">https://de.wikipedia.org/wiki/The_Bird_and_the_Bee</a><br>Dies ist eine Link-Beschreibung, die weitere Informationen zu der zugehörigen URL liefert</li>
+                                    <li><a href="https://de.wikipedia.org/wiki/The_Bird_and_the_Bee">https://de.wikipedia.org/wiki/The_Bird_and_the_Bee</a><br>Dies ist eine Link-Beschreibung, die weitere Informationen zu der zugehörigen URL liefert</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3><span class="highlight">Aufgabe 2</span> Wie lauten die Bestandteile des Rumpfes?</h3>
+                                <p>Wie jedes Insekt hat auch eine Biene insgesamt 6 Beine. Die Biene benutzt ihre Beine nicht nur zum Laufen, sondern auch zur Körperpflege und beim Transport der Pollen zum Stock. Jedes Bein ist in fünf Glieder unterteilt. Vom Körper aus betrachtet nennt man sie Hüfte (Coxa), Schenkelring (Trochanter), Schenkel (Femur), Schiene (Tibia) und Fuß (Tarsus). Der Fuß ist widerum in 4 kleinere Glieder unterteilt. Das letzte Fußglied trägt eine Kralle und Haftlappen, mit denen sich Bienen auch auf sehr glatten Oberflächen, wie zum Beispiel Glas festhalten können.</p>
+                            </div>
+                            <div class="inline">
+                                <h3>Der Mast</h3>
+                                <p>Als Schiffsmast bezeichnet man einen ganz oder annähernd vertikal auf Schiffen aufgestellten Mast aus Holz, Metall oder anderen festen Materialien.</p>
+                            </div>
+                            <div>
+                                <h3><span class="highlight">Aufgabe 3</span> Wie lauten die Bestandteile des Rumpfes?</h3>
+                                <p>Wie jedes Insekt hat auch eine Biene insgesamt 6 Beine. Die Biene benutzt ihre Beine nicht nur zum Laufen, sondern auch zur Körperpflege und beim Transport der Pollen zum Stock. Jedes Bein ist in fünf Glieder unterteilt. Vom Körper aus betrachtet nennt man sie Hüfte (Coxa), Schenkelring (Trochanter), Schenkel (Femur), Schiene (Tibia) und Fuß (Tarsus). Der Fuß ist widerum in 4 kleinere Glieder unterteilt. Das letzte Fußglied trägt eine Kralle und Haftlappen, mit denen sich Bienen auch auf sehr glatten Oberflächen, wie zum Beispiel Glas festhalten können.</p>
+                            </div>
+                        </div>
+                    </div>
+				</section>
+            	<!--Ende des Einfüge-Bereichs-->
+
+            	<!--MathJax-Einbindung für die Formeldarstellung-->
+            </div>
+		</div>
+	</body>
+</html>
