@@ -5,19 +5,22 @@ clickImage.js is a plugin for elearn.js
 
 ## Documentation
 
-At first add required *.css* and *.js* files to your *.html*-Document.
+At the beginning, add required *.css* and *.js* files to your *.html*-Document to link these resources.
 
 1. `<link rel="stylesheet" type="text/css" href="assets/css/clickimage.css">`
 2. `<script type="text/javascript" src="assets/js/clickimage.js"></script>`
 
+Important: `*.sass`-file is only needed if you want to change styling options in a comfortable way. It is not required in production because the web browser would never request for it.
 
 ### Code-Snippet
 
-Replace variables with your content:
+Replace following placeholders with your content:
 
 1. $IMAGEPATH (Path to your image)
 2. $IMAGEALT (Alternative text of your image)
-3. $PINCOORDS ([[x,y],[x,y],...] Values: 0-100 (percent) of image width/height, like: [[30,30],[80,60],[66,10]]
+3. $PINCOORDS (`[[x,y,direction],[x,y],...]` Values: 0-100 (percent) of image width/height. Directons are optional and can contain `'top'`, `'right'` or `'right'`.  
+   Example: `[[30,30],[80,60,'left'],[66,10]]`
+4. Besides, it is possible to invert the pin color. Add `invert` as a second class-descriptor to "imagebox": `<div class="imagebox invert">`
 
 ```html
 <div class="clickimage">
@@ -53,4 +56,4 @@ clickImage.js was developed from [eLearning-Büro MIN](https://www.min.uni-hambu
 
 This software is licensed under [MIT-License](http://opensource.org/licenses/mit-license.php).
 
-Copyright (c) 2016 Michael Heinecke, eLearning-Büro MIN, Universität Hamburg
+Copyright (c) 2017 Michael Heinecke, eLearning-Büro MIN, Universität Hamburg

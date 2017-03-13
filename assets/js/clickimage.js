@@ -176,7 +176,7 @@ function clickimagePins(element, coordinates)
         {
             pin.classList.add(coordinate[2]);
         }
-        pin.insertAdjacentHTML('afterbegin', '<i>o</i><i>' + pin_counter + '</i>');
+        pin.insertAdjacentHTML('afterbegin', '<i>o</i><span>' + pin_counter + '</span>');
         pin.setAttribute('style', 'top:calc(' + coordinate[1] + '% - 0.5em);left:calc(' + coordinate[0] + '% - 0.5em);');
         pin.setAttribute('onclick', 'clickimageToggle(this.parentNode.parentNode.parentNode, ' + pin_counter + ')');
         pin_list.appendChild(pin);
