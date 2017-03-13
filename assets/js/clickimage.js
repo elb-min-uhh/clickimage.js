@@ -172,7 +172,11 @@ function clickimagePins(element, coordinates)
     coordinates.forEach(function(coordinate)
     {
         var pin = document.createElement('li');
-        pin.insertAdjacentHTML('afterbegin', '<i><i>o</i><i>' + pin_counter + '</i></i>');
+        if(coordinate[2] != undefined)
+        {
+            pin.classList.add(coordinate[2]);
+        }
+        pin.insertAdjacentHTML('afterbegin', '<i>o</i><i>' + pin_counter + '</i>');
         pin.setAttribute('style', 'top:calc(' + coordinate[1] + '% - 0.5em);left:calc(' + coordinate[0] + '% - 0.5em);');
         pin.setAttribute('onclick', 'clickimageToggle(this.parentNode.parentNode.parentNode, ' + pin_counter + ')');
         pin_list.appendChild(pin);

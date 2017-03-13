@@ -196,25 +196,25 @@
 {
     font-weight: bold;
     position: absolute;
-    line-height: 0;
+    /*line-height: 0;*/
 }
-
+/*
 .clickimage ol.pins li > i
 {
     position: relative;
     text-align: center;
-}
+}*/
 
-.clickimage ol.pins li i i
+.clickimage ol.pins li i
 {
     font-style: normal;
-    position: absolute;
+    /*position: absolute;
     left: 0;
     top: 0;
-    line-height: 0;
+    line-height: 0;*/
 }
 
-.clickimage ol.pins li i i:first-child
+.clickimage ol.pins li i:first-child
 {
     font-family: eLearn-icons;
     font-size: 3em;
@@ -222,32 +222,38 @@
     text-shadow: -1px -1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, 1px 1px 0 #fff;
 }
 
-.clickimage.invert ol.pins li i i:first-child
+.clickimage ol.pins li.top i:first-child
 {
-    color: #000;
+    transform: rotate(180deg) translateY(20px) ;
 }
 
-.clickimage ol.pins li i i:last-child
+.clickimage ol.pins li i:first-child
 {
-    left: 50%;
-    top: -0.6em;
-    width: 3em;
+    font-family: eLearn-icons;
+    font-size: 3em;
+    color: #e2001a;
+    text-shadow: -1px -1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, 1px 1px 0 #fff;
 }
 
-.clickimage ol.pins li.visited i i:first-child
+.clickimage ol.pins li i:last-child
+{
+    transform: translateY(-1em) translateX(-1em);
+}
+
+.clickimage ol.pins li.visited i:first-child
 {
     opacity: 0.4;
 }
 
 
 
-.clickimage ol.pins li.active i i:first-child, .clickimage ol.pins li:hover i i:first-child 
+.clickimage ol.pins li.active i:first-child, .clickimage ol.pins li:hover i:first-child 
 {
     color: #000;
     opacity: 1;
 }
 
-.clickimage.invert ol.pins li.active i i:first-child, .clickimage.invert ol.pins li:hover i i:first-child 
+.clickimage.invert ol.pins li.active i:first-child, .clickimage.invert ol.pins li:hover i:first-child 
 {
     color: #e2001a;
     opacity: 1;
