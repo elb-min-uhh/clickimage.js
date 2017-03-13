@@ -218,8 +218,13 @@
 {
     font-family: eLearn-icons;
     font-size: 3em;
+    color: #e2001a;
+    text-shadow: -1px -1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, 1px 1px 0 #fff;
+}
+
+.clickimage.invert ol.pins li i i:first-child
+{
     color: #000;
-    opacity: 0.7;
 }
 
 .clickimage ol.pins li i i:last-child
@@ -234,7 +239,15 @@
     opacity: 0.4;
 }
 
+
+
 .clickimage ol.pins li.active i i:first-child, .clickimage ol.pins li:hover i i:first-child 
+{
+    color: #000;
+    opacity: 1;
+}
+
+.clickimage.invert ol.pins li.active i i:first-child, .clickimage.invert ol.pins li:hover i i:first-child 
 {
     color: #e2001a;
     opacity: 1;
