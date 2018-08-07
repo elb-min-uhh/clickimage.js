@@ -18,14 +18,17 @@ Replace following placeholders with your content:
 
 1. $IMAGEPATH (Path to your image)
 2. $IMAGEALT (Alternative text of your image)
-3. $PINCOORDS (`[[x,y,direction],[x,y],...]` Values: 0-100 (percent) of image width/height. Directons are optional and can contain `'top'`, `'left'` or `'right'`.  
+3. $PINCOORDS Two possible alternatives:
+    * `[[x,y,direction],[x,y],...]` Values: 0-100 (percentage) of image width/height. Directons are optional and can contain `'top'`, `'left'` or `'right'`.  
    Example: `[[30,30],[80,60,'left'],[66,10]]`
+   * `x, y, direction; x, y, ...` Values: 0-100 (percentage) of image width/height. Directons are optional and can contain `'top'`, `'left'` or `'right'`.  
+   Example: `30, 30; 80, 60, 'left'; 66, 10`
 4. Besides, it is possible to invert the pin color. Add `invert` as a second class-descriptor to "imagebox": `<div class="imagebox invert">`
 
 ```html
 <div class="clickimage">
     <div class="imagebox">
-        <img src="$IMAGEPATH" alt="$IMAGEALT" onload="clickimagePins(this,$PINCOORDS)">
+        <img src="$IMAGEPATH" alt="$IMAGEALT" pins="$PINCOORDS">
     </div>
     <div class="pininfo">
         <div>
