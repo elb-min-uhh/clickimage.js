@@ -192,3 +192,27 @@ function clickimagePins(element, coordinates)
     /* Hide all »pininfo« */
     clickimageToggle(element.parentNode.parentNode, 0);
 }
+
+window.addEventListener('load', function() {
+    var elements = document.querySelectorAll('[pins]');
+    for(var i = 0; i < elements.length; i++) {
+        var pinsString = elements[i].getAttribute('pins').replace(/[´']/g, '"');
+        // try parsing of arrays for [[..],[..]] syntax
+        var pins;
+        console.log(pinsString);
+        try {
+            pins = JSON.parse(pinsString);
+        }
+        // if the syntax fails, try the ';' seperated syntax (e.g. "10,10;25,0,'top'")
+        catch(e) {
+            console.log(e);
+            pins = pinsString.split(';');
+            // parse each pin
+            for(var j = 0; j < pins.length; j++) {
+                pins[j] = JSON.parse('[' + pins[j] + ']');
+            }
+        }
+        console.log(pins);
+        if(pins !== undefined) clickimagePins(elements[i], pins);
+    }
+});
