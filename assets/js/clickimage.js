@@ -156,6 +156,10 @@ function clickimageToggle(element, pin_number)
 
 function clickimagePins(element, coordinates)
 {
+    /* Parses the pin coordinates from the html attribute if not given */
+    if(coordinates === undefined && element.getAttribute('pins')) {
+        coordinates = parsePinCoordinates(element.getAttribute('pins'));
+    }
 
     /* Counts pins to determine current pin */
     var pin_counter = 1;
@@ -193,26 +197,58 @@ function clickimagePins(element, coordinates)
     clickimageToggle(element.parentNode.parentNode, 0);
 }
 
-window.addEventListener('load', function() {
-    var elements = document.querySelectorAll('[pins]');
-    for(var i = 0; i < elements.length; i++) {
-        var pinsString = elements[i].getAttribute('pins').replace(/[´']/g, '"');
-        // try parsing of arrays for [[..],[..]] syntax
-        var pins;
-        console.log(pinsString);
+/**
+ * Parses the pin coordinates usually given as HTML attribute `pins`.
+ * These coordinates can use the array syntax (e.g `[[30,30],[80,60,'left'],[66,10]]`)
+ * Or the CSV syntax (e.g. `30, 30; 80, 60, 'left'; 66, 10`)
+ * @param {String} pinsString the String to parse the coordinates array from.
+ * @return {Array} of pins. Each pin is an array with 2 or 3 values.
+ */
+function parsePinCoordinates(pinsString) {
+    var pins;
+    pinsString = pinsString.replace(/[´']/g, '"');
+    // try parsing of arrays for [[..],[..]] syntax
+    try {
+        pins = JSON.parse(pinsString);
+    }
+    // if the syntax fails, try the ';' seperated syntax (e.g. "10,10;25,0,'top'")
+    catch(e) {
         try {
-            pins = JSON.parse(pinsString);
-        }
-        // if the syntax fails, try the ';' seperated syntax (e.g. "10,10;25,0,'top'")
-        catch(e) {
-            console.log(e);
             pins = pinsString.split(';');
             // parse each pin
             for(var j = 0; j < pins.length; j++) {
                 pins[j] = JSON.parse('[' + pins[j] + ']');
             }
         }
-        console.log(pins);
-        if(pins !== undefined) clickimagePins(elements[i], pins);
+        catch(err) {
+            throw new Error("Could not parse clickimage pins string '" + pinsString
+                + "'.\n"
+                + err
+                + "\nPlease check your pin syntax for mistakes.");
+        }
     }
-});
+    if(pins === undefined) throw new Error("Unknown error while parsing the pin coordinates.");
+    return pins;
+}
+
+/**
+ * Initializes all Clickimages. Clickimages are declared by the attribute `pins`.
+ */
+function initializeClickimages() {
+    var elements = document.querySelectorAll('[pins]');
+    for(var i = 0; i < elements.length; i++) {
+        /*
+        try/catch so it continues with the next element without breaking
+        out of the loop, when any syntax error occurs.
+        */
+        try {
+            clickimagePins(elements[i]);
+        }
+        catch(err) {
+            console.error(err);
+        }
+    }
+}
+
+// Add the automatic initialization on load
+window.addEventListener('load', initializeClickimages);
