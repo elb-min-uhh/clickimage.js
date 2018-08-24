@@ -201,35 +201,29 @@ function clickimagePins(element, coordinates)
 
 /**
  * Parses the pin coordinates usually given as HTML attribute `pins`.
- * These coordinates can use the array syntax (e.g `[[30,30],[80,60,'left'],[66,10]]`)
- * Or the CSV syntax (e.g. `30, 30; 80, 60, 'left'; 66, 10`)
+ * These coordinates use CSV syntax, seperated by ';'
+ * e.g. `30, 30; 80, 60, 'left'; 66, 10`
  * @param {String} pinsString the String to parse the coordinates array from.
  * @return {Array} of pins. Each pin is an array with 2 or 3 values.
  */
 function parsePinCoordinates(pinsString) {
     var pins;
     pinsString = pinsString.replace(/[´']/g, '"');
-    // try parsing of arrays for [[..],[..]] syntax
+    // try parsing of pin syntax
     try {
-        pins = JSON.parse(pinsString);
-    }
-    // if the syntax fails, try the ';' seperated syntax (e.g. "10,10;25,0,'top'")
-    catch(e) {
-        try {
-            pins = pinsString.split(';');
-            // parse each pin
-            for(var j = 0; j < pins.length; j++) {
-                pins[j] = JSON.parse('[' + pins[j] + ']');
-            }
-        }
-        catch(err) {
-            throw new Error("Could not parse clickimage pins string '" + pinsString
-                + "'.\n"
-                + err
-                + "\nPlease check your pin syntax for mistakes.");
+        pins = pinsString.split(';');
+        // parse each pin
+        for(var j = 0; j < pins.length; j++) {
+            pins[j] = JSON.parse('[' + pins[j] + ']');
         }
     }
-    if(pins === undefined) throw new Error("Unknown error while parsing the pin coordinates.");
+    catch(err) {
+        throw new Error("Could not parse clickimage pins string '" + pinsString
+            + "'.\n"
+            + err
+            + "\nPlease check your pin syntax for mistakes.");
+    }
+    if(pins === undefined) throw new Error("Unknown error while parsing the pin coordinates. Maybe the data-pins attribute was empty.");
     return pins;
 }
 
