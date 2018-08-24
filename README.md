@@ -28,7 +28,7 @@ Replace following placeholders with your content:
 ```html
 <div class="clickimage">
     <div class="imagebox">
-        <img src="$IMAGEPATH" alt="$IMAGEALT" pins="$PINCOORDS">
+        <img src="$IMAGEPATH" alt="$IMAGEALT" data-pins="$PINCOORDS">
     </div>
     <div class="pininfo">
         <div>

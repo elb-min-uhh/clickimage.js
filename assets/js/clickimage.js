@@ -157,8 +157,8 @@ function clickimageToggle(element, pin_number)
 function clickimagePins(element, coordinates)
 {
     /* Parses the pin coordinates from the html attribute if not given */
-    if(coordinates === undefined && element.getAttribute('pins')) {
-        coordinates = parsePinCoordinates(element.getAttribute('pins'));
+    if(coordinates === undefined && element.getAttribute('data-pins')) {
+        coordinates = parsePinCoordinates(element.getAttribute('data-pins'));
     }
 
     /* Counts pins to determine current pin */
@@ -235,7 +235,7 @@ function parsePinCoordinates(pinsString) {
  * Initializes all Clickimages. Clickimages are declared by the attribute `pins`.
  */
 function initializeClickimages() {
-    var elements = document.querySelectorAll('[pins]');
+    var elements = document.querySelectorAll('[data-pins]');
     for(var i = 0; i < elements.length; i++) {
         /*
         try/catch so it continues with the next element without breaking
