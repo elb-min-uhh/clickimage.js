@@ -146,6 +146,8 @@ function clickimageToggle(element, pin_number)
  * Return: void
  *
  * Put clickable pins over of image.
+ * coordinates is an optional parameter. If undefined it will read out the
+ * `data-pins` attribute of the element.
  * Format of parameter »coordinates«:
  *   [[x,y],[x,y],...]
  *   Values: 0-100 (percent) of image width/height
